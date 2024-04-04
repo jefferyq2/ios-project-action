@@ -1,4 +1,4 @@
-# android-package-name-action v1
+# ios-project-action v1
 Override your iIO Configuration on info.plist through github actions
 
 ## Features
