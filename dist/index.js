@@ -26621,7 +26621,7 @@ try {
         }
         fs.writeFile(infoPlistPath, newData, function (err) {
             if (err) throw err;
-            console.log(`Successfully override CFBundle ${newCFBundle} on ${path}`);
+            console.log(`Successfully override CFBundle ${newCFBundle} on ${infoPlistPath}`);
             core.setOutput("result", `Done`);
         });
     });
