@@ -1,0 +1,28 @@
+name: "Change iOS configuration"
+description: "Change iOS configuration on info.plist"
+inputs:
+  infoPlistPath:
+    description: "Info plist path to override version"
+    required: true
+    default: "ios/NeatMobileApp/Info.plist"
+  newCFBundleURLSchemes:
+    description: "new CFBundleURLSchemes value"
+    required: true
+    default: "com.googleusercontent.apps.594414251342-7q60god947l6pjm63ggttfbu1ih10t85"
+  oldCFBundleURLSchemes:
+    description: "Current CFBundleURLSchemes value to be replace"
+    required: true
+    default: "com.googleusercontent.apps.83408358997-6oa46aivv9h2oep8k0kmmvg315694cf7"
+  cleanNSExceptionDomains:
+    description: "Flag to clean NSExceptionDomains configuration"
+    required: true
+    default: "true"
+outputs:
+  result: # id of output
+    description: "Action Result"
+runs:
+  using: "node20"
+  main: "dist/index.js"
+branding:
+  color: 'blue'
+  icon: 'anchor'
