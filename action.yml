@@ -4,15 +4,15 @@ inputs:
   infoPlistPath:
     description: "Info plist path to override version"
     required: true
-    default: "ios/NeatMobileApp/Info.plist"
+    default: "ios/AppName/Info.plist"
   newCFBundleURLSchemes:
     description: "new CFBundleURLSchemes value"
     required: true
-    default: "com.googleusercontent.apps.594414251342-7q60god947l6pjm63ggttfbu1ih10t85"
+    default: "com.googleusercontent.apps.XXX"
   oldCFBundleURLSchemes:
     description: "Current CFBundleURLSchemes value to be replace"
     required: true
-    default: "com.googleusercontent.apps.83408358997-6oa46aivv9h2oep8k0kmmvg315694cf7"
+    default: "com.googleusercontent.apps.XXX2"
   cleanNSExceptionDomains:
     description: "Flag to clean NSExceptionDomains configuration"
     required: true

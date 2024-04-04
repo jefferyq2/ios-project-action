@@ -1,24 +1,18 @@
 # android-package-name-action v1
-Override your android package name on all important files through github actions
+Override your iIO Configuration on info.plist through github actions
 
 ## Features
-* Override your android package name on all important files through github actions
+* Override your iIO Configuration on info.plist through github actions
 
 ## Parameters
 
-- `androidManifestPath`: **Required** Android Manifest path to override version. It is a required parameter. The default value is "android/app/src/main/AndroidManifest.xml".
+- `infoPlistPath`: **Required** Info Plist path to override version. It is a required parameter. The default value is "ios/AppName/Info.plist".
 
-- `buildGradlePath`: **Required** Build gradle path to override version. It is a required parameter. The default value is "android/app/build.gradle".
+- `newCFBundleURLSchemes`: **Required** Build gradle path to override version. It is a required parameter. The default value is "com.googleusercontent.apps.XXX".
 
-- `stringsPath`: **Required** Strings xml path to override version. It is a required parameter. The default value is "android/app/src/main/res/values/strings.xml".
+- `oldCFBundleURLSchemes`: **Required** Strings xml path to override version. It is a required parameter. The default value is "com.googleusercontent.apps.XXX2".
 
-- `mainActivityPath`: **Required** Main Activity path to override version. It is a required parameter. The default value is "android/app/src/main/java/com/neatmobileapp/MainActivity.java".
-
-- `mainApplicationPath`: **Required** Main Application path to override version. It is a required parameter. The default value is "android/app/src/main/java/com/neatmobileapp/MainApplication.java".
-
-- `newPackageName`: **Required** The new package name. It is a required parameter. The default value is "com.neat.mobileappprod".
-
-- `oldPackageName`: **Required** The old package name. It is a required parameter. The default value is "com.neatmobileapp".
+- `cleanNSExceptionDomains`: **Required** Main Activity path to override version. It is a required parameter. The default value is "true".
 
 ## Example
 ```
@@ -36,7 +30,7 @@ jobs:
       - name: Change ios config
         uses: Neat-Pagos/ios-project-action@v1
         with:
-          infoPlistPath: ios/NeatMobileApp/Info.plist
+          infoPlistPath: ios/AppName/Info.plist
           newCFBundleURLSchemes: com.googleusercontent.apps.XXX
           oldCFBundleURLSchemes: com.googleusercontent.apps.XXX2
           cleanNSExceptionDomains: true
