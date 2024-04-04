@@ -33,8 +33,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 11.0.22+7
-      - name: Change package name
-        uses: Neat-Pagos/android-package-name-action@v1
+      - name: Change ios config
+        uses: Neat-Pagos/ios-project-action@v1
         with:
           infoPlistPath: ios/NeatMobileApp/Info.plist
           newCFBundleURLSchemes: com.googleusercontent.apps.XXX
