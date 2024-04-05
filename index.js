@@ -16,15 +16,23 @@ try {
         const regExpCFBundle = new RegExp(oldCFBundle, 'g');
         let newData = data.replace(regExpCFBundle, newCFBundle);
         if (cleanNSExceptionDomains) {
-            const regExpNSExceptionDomains = new RegExp(`<key>NSExceptionDomains<\\/key>(.|\\n)*?<\\/dict>`, 'g');
-            const regExpExe = regExpNSExceptionDomains.exec(newData);
-            // Check if NSExceptionDomains is present and is not already empty
-            if (regExpExe.length > 0) {
-                if(regExpExe[0].length > 42){
-                    console.log(`Found NSExceptionDomains: ${regExpExe[0]}`);
-                    newData = newData.replace(regExpNSExceptionDomains, '<key>NSExceptionDomains</key>');
-                }
-            }
+            const extractoOriginal = `
+                <key>NSExceptionDomains</key>
+                            <dict>
+                                <key>localhost</key>
+                                <dict>
+                                    <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                                    <true/>
+                                </dict>
+                            </dict>
+                `;
+
+            const extractoNuevo = `
+            <key>NSExceptionDomains</key>
+                    <dict/>
+            `;
+            const regExpNSExceptionDomains = new RegExp(extractoOriginal.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"), 'g');
+            newData = newData.replace(regExpNSExceptionDomains, extractoNuevo);
         }
         fs.writeFile(infoPlistPath, newData, function (err) {
             if (err) throw err;
